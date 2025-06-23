@@ -8,8 +8,10 @@ body {
   font-family: 'Lato', sans-serif;
 }
 
+/* Responsive Header */
 .header {
   display: flex;
+  flex-wrap: wrap;
   background-color: #041D2E;
   padding: 1rem 2rem;
   justify-content: space-between;
@@ -27,12 +29,20 @@ body {
   font-family: 'IBM Plex Sans', sans-serif;
   margin: 0;
   font-weight: lighter;
+  font-size: 1.5rem;
 }
 
-.header-actions button, .load-more-wrapper button, .confirm-modal .confirm-actions button.danger {
+.header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.header-actions button,
+.load-more-wrapper button,
+.confirm-modal .confirm-actions button.danger {
   text-transform: uppercase;
-  margin-left: 1rem;
-  padding: 0.6rem 2rem;
+  padding: 0.6rem 1.5rem;
   color: white;
   border: none;
   border-radius: 40px;
@@ -40,12 +50,12 @@ body {
   font-size: 0.9em;
 }
 
-.deleteall{
+.deleteall {
   background-color: #A80000;
-
 }
 
-.new-post, .confirm-modal .confirm-actions button.danger{
+.new-post,
+.confirm-modal .confirm-actions button.danger {
   background-color: #B354B7;
 }
 
@@ -83,7 +93,7 @@ body {
 
 .note-card h3 {
   margin: 0 0 0.5rem;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 300;
   color: #2A2A19;
 }
@@ -100,7 +110,7 @@ body {
   height: 180px;
   object-fit: cover;
   border-radius: 4px;
-  margin: 0.5rem 0; 
+  margin: 0.5rem 0;
 }
 
 .load-more-wrapper {
@@ -118,7 +128,7 @@ body {
   background-color: #52636D;
   z-index: 9998;
   display: none;
-  justify-content: flex-end; 
+  justify-content: flex-end;
   align-items: stretch;
 }
 
@@ -192,21 +202,18 @@ body {
   font-size: 0.9em;
 }
 
-input:focus {
-  outline: none; 
-}
-
-input[type="text"]:focus,
+input:focus,
 textarea:focus {
   outline: none;
 }
 
-input#noteTitle, input#editTitle{
-  font-size: 30px;
+input#noteTitle,
+input#editTitle {
+  font-size: 1.5rem;
   padding: 6px 5px;
 }
 
-.modal-content textarea{
+.modal-content textarea {
   height: 50%;
   font-family: 'Lato', sans-serif;
   line-height: 1.8em;
@@ -222,9 +229,6 @@ input#noteTitle, input#editTitle{
   flex-wrap: wrap;
 }
 
-div#modalEdit .closeModal{
-  margin: 0;
-}
 .color-picker-row label {
   white-space: nowrap;
 }
@@ -252,28 +256,24 @@ div#modalEdit .closeModal{
   outline-color: #000;
 }
 
-
 .modal-actions {
   display: flex;
   justify-content: flex-end;
   margin-top: 1rem;
 }
 
-/* Default add button */
-#addNoteBtn, #saveEditBtn {
-  padding: 0.5rem 1rem;
+#addNoteBtn,
+#saveEditBtn {
+  padding: 0.6rem 2rem;
   background-color: #B354B7;
   border: none;
-  border-radius: 4px;
+  border-radius: 40px;
   color: white;
   cursor: pointer;
   opacity: 1;
   transition: background-color 0.2s, opacity 0.2s, cursor 0.2s;
-  padding: 0.6rem 2rem;
-  border-radius: 40px;
 }
 
-/* Disabled state */
 #addNoteBtn:disabled {
   background-color: #512653;
   color: #ccc;
@@ -297,14 +297,14 @@ div#modalEdit .closeModal{
 }
 
 .color-option.selected::after {
-  content: \"✔\";
+  content: '✔';
   font-size: 12px;
   color: #000;
   position: absolute;
 }
 
 .color-option.selected {
-  background-color: currentColor; 
+  background-color: currentColor;
 }
 
 .confirm-modal {
@@ -323,7 +323,7 @@ div#modalEdit .closeModal{
 
 .confirm-box {
   background-color: #000;
-  padding: .6rem;
+  padding: 1rem;
   border-radius: 4px;
   width: 90%;
   max-width: 500px;
@@ -340,6 +340,7 @@ div#modalEdit .closeModal{
   display: flex;
   justify-content: center;
   gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .confirm-actions button {
@@ -375,6 +376,7 @@ div#modalEdit .closeModal{
 #noteDetailPage .header-left {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 #noteContent {
@@ -384,7 +386,8 @@ div#modalEdit .closeModal{
   margin: 0 auto;
   max-width: 50%;
 }
-.innerPageheading{
+
+.innerPageheading {
   margin: 0;
   font-size: 2em;
 }
@@ -395,19 +398,60 @@ div#modalEdit .closeModal{
   object-fit: cover;
   border-radius: 10px;
   margin-top: 1rem;
-
 }
 
-.note-content p{
+.note-content p {
   line-height: 1.8em;
 }
 
 #modalEdit input,
-#modalEdit textarea,
-#modalEdit button {
+#modalEdit textarea{
   margin-top: 0.75rem;
 }
 
-.confirm-modal .confirm-actions button.danger{
-  margin-bottom: .9em;
+.confirm-modal .confirm-actions button.danger {
+  margin-bottom: 0.9em;
+}
+
+@media (max-width: 1024px) {
+  .note-grid {
+    grid-template-columns: repeat(3, 1fr);
+    padding: 1rem;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header{
+    padding: 1rem 1rem;
+  }
+
+  .header h1{
+    font-size: 1.4rem;
+  }
+  
+  .note-grid {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 1rem;
+  }
+
+  .note-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .note-card-image {
+    height: 140px;
+  }
+
+  .modal {
+    max-width: 100%;
+  }
+
+  .modal-content {
+    padding: 1rem;
+  }
+
+  #noteContent {
+    max-width: 95%;
+  }
 }
